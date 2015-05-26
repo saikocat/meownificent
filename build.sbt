@@ -2,7 +2,7 @@ name := "Meownificent Project"
 
 Common.settings
 
-lazy val restCore = project in file("rest-core")
+lazy val rest = project in file("rest")
 
 lazy val main = project.in(file("."))
-  .aggregate(restCore)
+  .aggregate(rest)
