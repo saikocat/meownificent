@@ -6,5 +6,5 @@ Spray and Scalaz learning ground
 ```
 $ sbt
 > project restCore
-> re-start --- -Dconfig.resource=dev.conf -Dlogback.configurationFile=dev-logback.xml
+> re-start --- -Dconfig.resource=application-dev.conf -Dlogback.configurationFile=logback-dev.xml
 ```
