@@ -6,6 +6,7 @@ import spray.routing.{HttpService, Route}
 
 import com.saikocat.meownificent.configuration.Settings
 import com.saikocat.meownificent.directive.AcceptHeaderDirective
+import com.saikocat.meownificent.error.ApiRejectionHandler
 
 class RootServiceActor(settings: Settings) extends Actor with RootService {
   val version: Int = settings.version
@@ -16,7 +17,9 @@ class RootServiceActor(settings: Settings) extends Actor with RootService {
 
 trait RootService extends HttpService
   with ApiVersioning with AcceptHeaderDirective
+  with ApiRejectionHandler
   with RedditService {
+
   lazy val rootRoute: Route = {
     accept(versionMediaType) {
       redditRoute
