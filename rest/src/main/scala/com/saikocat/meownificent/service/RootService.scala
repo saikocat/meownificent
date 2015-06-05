@@ -5,6 +5,7 @@ import akka.actor.{ActorRefFactory, Actor}
 import spray.routing.{HttpService, Route}
 
 import com.saikocat.meownificent.configuration.Settings
+import com.saikocat.meownificent.protocol.ApiMediaType
 import com.saikocat.meownificent.directive.AcceptHeaderDirective
 import com.saikocat.meownificent.error.ApiRejectionHandler
 
@@ -19,7 +20,7 @@ trait RootService extends HttpService
   with RedditService {
 
   lazy val rootRoute: Route = {
-    accept(versionMediaType) {
+    accept(ApiMediaType.versionMediaType) {
       redditRoute
     }
   }
